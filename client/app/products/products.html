@@ -6,20 +6,22 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" ng-init="findCategories()">
   <div class="row">
     <div class="col-lg-12">
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="product in products">
-        <li><a href="#" tooltip="{{product.info}}">{{product.name}}<button type="button" class="close" ng-click="deleteProduct(product)">&times;</button></a></li>
+        <li><a href="#" tooltip="{{product.name}}">{{product.info}}<button type="button" class="close" ng-click="deleteProduct(product)">&times;</button></a></li>
       </ul>
     </div>
   </div>
 
   <form class="product-form">
     <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new product here." ng-model="newProduct">
+      <input type="text" class="form-control" placeholder="Add a new product name here." ng-model="newProduct.name">
+
+      <input type="text" class="form-control" placeholder="Add a new product info here." ng-model="newProduct.info">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addProduct()">Add New</button>
+        <button type="submit" class="btn btn-primary" ng-click="addProduct(newProduct)">Add New</button>
       </span>
     </p>
   </form>
