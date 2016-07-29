@@ -1,22 +1,24 @@
 'use strict';
 
 angular.module('tiendaApp')
-  .controller('CategoriesCtrl', function ($scope, CategoriesService) {
+  .controller('CategoriesCtrl', function ($scope, CategoriesService, socket) {
     self = $scope;
-    $scope.newCategory = {};
-    $scope.categories = {};
+    self.newCategory = {};
 
-    $scope.addCategory = function($scope.newCategory){
-      if(!$scope.newCategory){ return;}
-      CategoriesService.save($scope.newCategory, function(){
-        $scope.newCategory = {};
+    CategoriesService.query(function(categories){
+      self.categories = categories;
+      socket.syncUpdates('categories', self.categories);
+    });
+
+    self.addCategory = function(){
+      if(!self.newCategory){ return;}
+      CategoriesService.save(self.newCategory, function(){
+        self.newCategory = {};
       });
     };
 
-    $scope.findCategories = function(){
-      CategoriesService.find({}, function(categories){
-        $scope.categories = categories;
-      });
-    };
+    self.$on('$destroy', function() {
+      socket.unsyncUpdates('category');
+    });
 
   });

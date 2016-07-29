@@ -1,22 +1,23 @@
 'use strict';
 
 angular.module('tiendaApp')
-  .controller('ProductsCtrl', function ($scope, ProductsService) {
-    self = this;
+  .controller('ProductsCtrl', function ($scope, ProductsService, socket) {
+    self = $scope;
     self.newProduct = {};
-    self.products = {};
 
-    self.addProduct = function(self.newProduct){
-      if(!self.newProduct){ return;}
+    ProductsService.query(function(products){
+      self.products = products;
+      socket.syncUpdates('products', self.products);
+    });
+
+
+    self.addProduct = function(){
       ProductsService.save(self.newProduct, function(){
-        self.newCategory = {};
+        self.newProduct = {};
       });
     };
 
-    self.findCategories = function(){
-      ProductsService.find({}, function(products){
-        self.products = products;
-      });
-    };
-
+    self.$on('$destroy', function() {
+      socket.unsyncUpdates('product');
+    });
   });
