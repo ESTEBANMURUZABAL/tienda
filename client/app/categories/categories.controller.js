@@ -2,7 +2,7 @@
 
 angular.module('tiendaApp')
   .controller('CategoriesCtrl', function ($scope, CategoriesService, socket) {
-    self = $scope;
+    var self = $scope;
     self.newCategory = {};
 
     CategoriesService.query(function(categories){
@@ -16,6 +16,12 @@ angular.module('tiendaApp')
         self.newCategory = {};
       });
     };
+
+    self.deleteCategory = function(category) {
+      CategoriesService.delete({id:category._id}, function(){
+        console.log('category deleted')
+      })
+    }
 
     self.$on('$destroy', function() {
       socket.unsyncUpdates('category');

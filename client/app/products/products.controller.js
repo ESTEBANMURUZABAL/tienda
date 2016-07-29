@@ -2,7 +2,7 @@
 
 angular.module('tiendaApp')
   .controller('ProductsCtrl', function ($scope, ProductsService, socket) {
-    self = $scope;
+    var self = $scope;
     self.newProduct = {};
 
     ProductsService.query(function(products){
@@ -10,6 +10,11 @@ angular.module('tiendaApp')
       socket.syncUpdates('products', self.products);
     });
 
+    self.deleteProduct = function(product){
+      ProductsService.delete({id:product._id}, function(product){
+        console.log('product deleted');
+      })
+    }
 
     self.addProduct = function(){
       ProductsService.save(self.newProduct, function(){

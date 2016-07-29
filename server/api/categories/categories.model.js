@@ -10,6 +10,7 @@ var CategoriesSchema = new mongoose.Schema({
     type: Schema.ObjectId,
     ref: 'Products'
   }],
+  iconUrl: String,
   active: Boolean
 });
 

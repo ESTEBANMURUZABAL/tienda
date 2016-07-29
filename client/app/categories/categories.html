@@ -15,16 +15,31 @@
           <label class="sr-only" for="categoryName">Title</label>
           <input ng-model="newCategory.name" class="form-control" id="categoryName" placeholder="Name">
         </div>
+
         <div class="form-group">
           <label class="sr-only" for="categoryInfo">Lecturer</label>
           <input ng-model="newCategory.info" class="form-control" id="categoryInfo" placeholder="Info">
         </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="categoryUrl">Url</label>
+          <input ng-model="newCategory.iconurl" class="form-control" id="categoryUrl" placeholder="Url for your image">
+        </div>
+
         <button class="btn btn-success" ng-click="addCategory()">Add Category</button>
       </form>
 
-      <div ng-repeat="category in categories">
-        {{category.name}}
-      </div>
+      <md-list>
+        <md-subheader class="md-no-sticky">Categories</md-subheader>
+        <md-list-item class="md-2-line" ng-click="goToCategory(category)" ng-repeat="category in categories">
+          <img ng-src="{{category.iconurl}}" class="md-avatar" alt="{{item.who}}" />
+          <div class="md-list-item-text" layout="column">
+            <h4 class="media-heading">{{category.title}}</h4>
+            <h6> - {{category.info ? category.info : 'unknown'}}</h6>
+          </div>
+          <md-button class="md-secondary" ng-click="deleteCategory(category)">Delete</md-button>
+        </md-list-item>
+      </md-list>
     </div>
   </div>
 
