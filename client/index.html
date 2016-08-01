@@ -16,7 +16,9 @@
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
       <!-- endbower -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
       <link rel="stylesheet" href="app/app.css">
@@ -73,16 +75,18 @@
       <script src="bower_components/angular-aria/angular-aria.js"></script>
       <script src="bower_components/angular-messages/angular-messages.js"></script>
       <script src="bower_components/angular-material/angular-material.js"></script>
+      <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+      <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
       <script src="app/app.js"></script>
       <!-- injector:js -->
-      <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
+      <script src="app/admin/admin.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/products/products.service.js"></script>
+      <script src="app/account/signup/signup.controller.js"></script>
       <script src="app/admin/admin.controller.js"></script>
       <script src="app/account/account.js"></script>
       <script src="app/admin/admin.router.js"></script>
@@ -94,13 +98,14 @@
       <script src="app/main/main.js"></script>
       <script src="app/products/products.controller.js"></script>
       <script src="app/products/products.js"></script>
+      <script src="app/products/products.service.js"></script>
       <script src="app/account/login/login.controller.js"></script>
-      <script src="app/account/settings/settings.controller.js"></script>
       <script src="components/auth/auth.service.js"></script>
       <script src="components/auth/interceptor.service.js"></script>
       <script src="components/auth/router.decorator.js"></script>
       <script src="components/auth/user.service.js"></script>
       <script src="components/footer/footer.directive.js"></script>
+      <script src="components/image/image.service.js"></script>
       <script src="components/modal/modal.service.js"></script>
       <script src="components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
@@ -108,7 +113,7 @@
       <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
       <script src="components/socket/socket.service.js"></script>
-      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="app/account/settings/settings.controller.js"></script>
       <script src="components/util/util.service.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->

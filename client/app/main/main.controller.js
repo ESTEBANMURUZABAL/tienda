@@ -1,36 +1,33 @@
 'use strict';
 
-(function() {
-
-class MainController {
-
-  constructor($http, $scope, socket) {
-    this.$http = $http;
-    this.awesomeThings = [];
-
-    $http.get('/api/things').then(response => {
-      this.awesomeThings = response.data;
-      socket.syncUpdates('thing', this.awesomeThings);
-    });
-
-    $scope.$on('$destroy', function() {
-      socket.unsyncUpdates('thing');
-    });
-  }
-
-  addThing() {
-    if (this.newThing) {
-      this.$http.post('/api/things', { name: this.newThing });
-      this.newThing = '';
-    }
-  }
-
-  deleteThing(thing) {
-    this.$http.delete('/api/things/' + thing._id);
-  }
-}
-
 angular.module('tiendaApp')
-  .controller('MainController', MainController);
+  .controller('MainController', function ($scope) {
+    var self = $scope;
 
-})();
+    var $item = $('.carousel .item');
+    var $wHeight = $(window).height();
+    $item.eq(0).addClass('active');
+    $item.height($wHeight);
+    $item.addClass('full-screen');
+
+    $('.carousel img').each(function() {
+      var $src = $(this).attr('src');
+      var $color = $(this).attr('data-color');
+      $(this).parent().css({
+        'background-image' : 'url(' + $src + ')',
+        'background-color' : $color
+      });
+      $(this).remove();
+    });
+
+    $(window).on('resize', function (){
+      $wHeight = $(window).height();
+      $item.height($wHeight);
+    });
+
+    $('.carousel').carousel({
+      interval: 1000,
+      pause: "false"
+    });
+
+  });

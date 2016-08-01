@@ -11,11 +11,16 @@ angular.module('tiendaApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'ngMaterial'
+  'ngMaterial',
+  'ngAnimate',
+  'ngFileUpload',
+  'ngImgCrop',
+  'ngTouch'
 ])
-  .config(function($urlRouterProvider, $locationProvider) {
+  .config(function($urlRouterProvider, $locationProvider, $mdThemingProvider) {
     $urlRouterProvider
       .otherwise('/');
 
+    $mdThemingProvider.theme('error-toast');
     $locationProvider.html5Mode(true);
   });

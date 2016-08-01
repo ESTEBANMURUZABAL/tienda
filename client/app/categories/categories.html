@@ -35,7 +35,7 @@
           <img ng-src="{{category.iconurl}}" class="md-avatar" alt="{{item.who}}" />
           <div class="md-list-item-text" layout="column">
             <h4 class="media-heading">{{category.title}}</h4>
-            <h6> - {{category.info ? category.info : 'unknown'}}</h6>
+            <h6> - {{category.info}}</h6>
           </div>
           <md-button class="md-secondary" ng-click="deleteCategory(category)">Delete</md-button>
         </md-list-item>
