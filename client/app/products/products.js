@@ -17,5 +17,10 @@ angular.module('tiendaApp')
         url: '/products/:id',
         templateUrl: 'app/products/edit-product.html',
         controller: 'ProductsCtrl'
+      })
+      .state('cart-view', {
+        url: '/cart-view/',
+        templateUrl: 'app/products/cart-view.html',
+        controller: 'ProductsCtrl'
       });
   });

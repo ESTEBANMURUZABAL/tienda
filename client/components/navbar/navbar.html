@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+<!--<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">tienda</a>
+      <a href="/" class="navbar-brand">Home</a>
     </div>
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
@@ -25,6 +25,57 @@
         <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>-->
+<div class="site-outer">
+  <nav class="navbar navbar-fixed-top">
+    <section class="container-fluid">
+      <div class="row">
+        <div class="container-menu">
+          <nav class="menu" id="hb">
+            <div></div>
+            <div></div>
+            <div></div>
+          </nav>
+          <div class="logotype">
+            <div class="big hero">Tienda</div>
+          </div>
+          <div class="checkout">
+            <h3><a href="#"><i class="fa fa-shopping-cart red"></i>  Compras <span class="badge badge-red">0</span></a></h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </nav>
+  <!-- NAVIGATION -->
+  <div class="navigation">
+    <button class="navigation-login">
+      <i class="fa fa-shopping-cart"></i> Compras <span class="badge badge-white">0</span>
+    </button>
+    <div class="navigation-search">
+      <div id="search">
+        <input type="text" name="input" class="input" placeholder="Search" />
+        <button type="reset" class="search" id="search-button"></button>
+      </div>
+    </div>
+    <div class="navigation-content">
+      <h3>Menu</h3>
+      <ul class="navigation-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#"><i class="red fa fa-circle"></i> Libreria</a></li>
+        <li><a href="#"><i class="beige fa fa-circle"></i> Fotocopias</a></li>
+        <li><a href="#"><i class="orange fa fa-circle"></i> Carteleria</a></li>
+        <li><a href="#"><i class="blue fa fa-circle"></i> Paginas Web</a></li>
+      </ul>
+      <h3>MAS</h3>
+      <ul class="navigation-menu">
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="#">Contactanos</a></li>
+        <li><a href="#">Mas informacion</a></li>
+        <li><a href="#">Sumate al equipo</a></li>
+        <li><a href="#">Servicio al cliente</a></li>
       </ul>
     </div>
   </div>
